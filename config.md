@@ -24,7 +24,6 @@ const seleniumOptions = {
             version: '74.0.3729.6', // version of ChromeDriver
         },
     },
-    singleDriverInstall: true, // only install a single browser driver (the ChromeDriver in this case)
 };
 
 exports.config = {
