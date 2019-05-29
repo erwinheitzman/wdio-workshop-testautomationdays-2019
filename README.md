@@ -1,1 +1,0 @@
-# wdio-workshop-testautomationdays-2019
