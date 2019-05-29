@@ -9,12 +9,7 @@
 ```javascript
 afterTest(test) {
     if (!test.passed) {
-        const filename: string = Math.random()
-            .toString(26)
-            .slice(2);
-
-        // make sure that the errorShots directory is created/existing before running this
-        browser.saveScreenshot('./errorShots/' + filename + '.png');
+        browser.saveScreenshot('./errorShots/' + test.fullTitle + '.png');
     }
 }
 ```
