@@ -32,3 +32,15 @@ Implement the `complete all todos` scenario
 Exercise #8
 
 Implement the `delete all completed todos` scenario
+
+Exercise #9
+
+Implement the `remove aside element` scenario
+
+Exercise #10
+
+Implement the `add custom command to the Browser object`scenario
+
+Exercise #11
+
+Implement the `add custom command to the Element object`scenario
