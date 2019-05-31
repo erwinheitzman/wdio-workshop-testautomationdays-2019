@@ -1,12 +1,13 @@
+// #1: import the todoPage class instance
 const todoPage = require('./pages/todo.page');
 
-// #1: page under test is http://todomvc.com/examples/vanillajs/
 describe('todo app', () => {
     before(() => {
+        // #2: add navigation to 'http://todomvc.com/examples/vanillajs/'
         browser.url('http://todomvc.com/examples/vanillajs/');
     })
 
-    // #2
+    // #3:
     it.skip('create todo', () => {
         const firstTodo = new todoPage.Todo('first todo');
 
@@ -21,7 +22,7 @@ describe('todo app', () => {
 
     });
 
-    // #3
+    // #4:
     it.skip('edit todo', () => {
         const firstTodo = new todoPage.Todo('first todo');
         const editedTodo = new todoPage.Todo('edited todo');
@@ -36,7 +37,7 @@ describe('todo app', () => {
         editedTodo.self.waitForExist();
     });
 
-    // #4
+    // #5:
     it.skip('delete todo', () => {
         const firstTodo = new todoPage.Todo('first todo');
         const secondTodo = new todoPage.Todo('second todo');
@@ -56,7 +57,7 @@ describe('todo app', () => {
         secondTodo.self.waitForExist();
     });
 
-    // #5
+    // #6:
     it.skip('complete one todo', () => {
         const firstTodo = new todoPage.Todo('first todo');
 
@@ -71,7 +72,7 @@ describe('todo app', () => {
         browser.waitUntil(() => firstTodo.isCompleted());
     });
 
-    // #6
+    // #7:
     it.skip('show active/completed todos', () => {
         const firstTodo = new todoPage.Todo('first todo');
         const secondTodo = new todoPage.Todo('second todo');
@@ -96,7 +97,7 @@ describe('todo app', () => {
         firstTodo.self.waitForExist();
     });
 
-    // #7
+    // #8:
     it.skip('complete all todos', () => {
         const firstTodo = new todoPage.Todo('first todo');
         const secondTodo = new todoPage.Todo('second todo');
@@ -119,7 +120,7 @@ describe('todo app', () => {
         browser.waitUntil(() => fourthTodo.isCompleted());
     });
 
-    // #8
+    // #9:
     it.skip('delete all completed todos', () => {
         const firstTodo = new todoPage.Todo('first todo');
         const secondTodo = new todoPage.Todo('second todo');
@@ -142,7 +143,7 @@ describe('todo app', () => {
         browser.waitUntil(() => todoPage.todos.length === 0);
     });
 
-    // #9
+    // #10:
     it.skip('remove aside element from DOM', () => {
         $('aside').waitForExist();
 
@@ -151,7 +152,7 @@ describe('todo app', () => {
         $('aside').waitForExist(null, true);
     });
 
-    // #10
+    // #11:
     it('add custom command to the Browser object', () => {
         browser.addCommand('removeAsideElement', function() {
             $('aside').waitForExist();
@@ -162,7 +163,7 @@ describe('todo app', () => {
         browser.removeAsideElement();
     });
 
-    // #11
+    // #12:
     it('add custom command to the Element object', () => {
         browser.addCommand('removeAsideElement', function() {
             this.waitForExist();
