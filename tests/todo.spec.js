@@ -3,12 +3,16 @@ const todoPage = require('./pages/todo.page');
 
 describe('todo app', () => {
     before(() => {
-        // #2: add navigation to 'http://todomvc.com/examples/vanillajs/'
         browser.url('http://todomvc.com/examples/vanillajs/');
-    })
+    });
+    beforeEach(() => {
+        // #2: add navigation to 'http://todomvc.com/examples/vanillajs/'
+        browser.execute(() => localStorage.clear());
+        browser.refresh();
+    });
 
     // #3:
-    it.skip('create todo', () => {
+    it('create todo', () => {
         const firstTodo = new todoPage.Todo('first todo');
 
         // create todo item
@@ -19,11 +23,10 @@ describe('todo app', () => {
 
         // assert list contains the input item
         firstTodo.self.waitForExist();
-
     });
 
     // #4:
-    it.skip('edit todo', () => {
+    it('edit todo', () => {
         const firstTodo = new todoPage.Todo('first todo');
         const editedTodo = new todoPage.Todo('edited todo');
 
@@ -33,12 +36,12 @@ describe('todo app', () => {
         // edit the created todo item
         todoPage.editTodo(firstTodo, 'edited todo');
 
-        // assert changed item in text in todo item
+        // // assert changed item in text in todo item
         editedTodo.self.waitForExist();
     });
 
     // #5:
-    it.skip('delete todo', () => {
+    it('delete todo', () => {
         const firstTodo = new todoPage.Todo('first todo');
         const secondTodo = new todoPage.Todo('second todo');
 
@@ -58,7 +61,7 @@ describe('todo app', () => {
     });
 
     // #6:
-    it.skip('complete one todo', () => {
+    it('complete one todo', () => {
         const firstTodo = new todoPage.Todo('first todo');
 
         // create 2 todo items
@@ -73,7 +76,7 @@ describe('todo app', () => {
     });
 
     // #7:
-    it.skip('show active/completed todos', () => {
+    it('show active/completed todos', () => {
         const firstTodo = new todoPage.Todo('first todo');
         const secondTodo = new todoPage.Todo('second todo');
 
@@ -98,7 +101,7 @@ describe('todo app', () => {
     });
 
     // #8:
-    it.skip('complete all todos', () => {
+    it('complete all todos', () => {
         const firstTodo = new todoPage.Todo('first todo');
         const secondTodo = new todoPage.Todo('second todo');
         const thirdTodo = new todoPage.Todo('third todo');
@@ -121,7 +124,7 @@ describe('todo app', () => {
     });
 
     // #9:
-    it.skip('delete all completed todos', () => {
+    it('delete all completed todos', () => {
         const firstTodo = new todoPage.Todo('first todo');
         const secondTodo = new todoPage.Todo('second todo');
         const thirdTodo = new todoPage.Todo('third todo');
@@ -144,7 +147,7 @@ describe('todo app', () => {
     });
 
     // #10:
-    it.skip('remove aside element from DOM', () => {
+    it('remove aside element from DOM', () => {
         $('aside').waitForExist();
 
         browser.execute((sideElement) => sideElement.remove(), $('aside'));
