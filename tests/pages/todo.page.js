@@ -43,6 +43,10 @@ class TodoPage {
         browser.keys(str);
         browser.keys('Enter');
     }
+
+    open() {
+        browser.url('examples/vanillajs');
+    }
 }
 
 module.exports = new TodoPage();
