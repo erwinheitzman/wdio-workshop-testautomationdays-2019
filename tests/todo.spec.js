@@ -1,20 +1,26 @@
 // #1: import the todoPage class instance
 const todoPage = require('./pages/todo.page');
+const firstTodo = new todoPage.Todo('first todo');
+const secondTodo = new todoPage.Todo('second todo');
+const thirdTodo = new todoPage.Todo('third todo');
+const fourthTodo = new todoPage.Todo('fourth todo');
+const editedTodo = new todoPage.Todo('edited todo');
 
 describe('todo app', () => {
     before(() => {
-        browser.url('http://todomvc.com/examples/vanillajs/');
+        // #2: add navigation to 'http://todomvc.com/examples/vanillajs/'
+        todoPage.open();
     });
     beforeEach(() => {
-        // #2: add navigation to 'http://todomvc.com/examples/vanillajs/'
+        // #3: use the `browser.excute` command to clear the localStorage
         browser.execute(() => localStorage.clear());
+
+        // refresh the page
         browser.refresh();
     });
 
-    // #3:
+    // #4:
     it('create todo', () => {
-        const firstTodo = new todoPage.Todo('first todo');
-
         // create todo item
         todoPage.createTodo('first todo');
 
@@ -25,11 +31,8 @@ describe('todo app', () => {
         firstTodo.self.waitForExist();
     });
 
-    // #4:
+    // #5:
     it('edit todo', () => {
-        const firstTodo = new todoPage.Todo('first todo');
-        const editedTodo = new todoPage.Todo('edited todo');
-
         // create a todo item
         todoPage.createTodo('first todo');
 
@@ -40,11 +43,8 @@ describe('todo app', () => {
         editedTodo.self.waitForExist();
     });
 
-    // #5:
+    // #6:
     it('delete todo', () => {
-        const firstTodo = new todoPage.Todo('first todo');
-        const secondTodo = new todoPage.Todo('second todo');
-
         // create 2 todo items
         todoPage.createTodo('first todo');
         todoPage.createTodo('second todo');
@@ -60,10 +60,8 @@ describe('todo app', () => {
         secondTodo.self.waitForExist();
     });
 
-    // #6:
+    // #7:
     it('complete one todo', () => {
-        const firstTodo = new todoPage.Todo('first todo');
-
         // create 2 todo items
         todoPage.createTodo('first todo');
         todoPage.createTodo('second todo');
@@ -75,11 +73,8 @@ describe('todo app', () => {
         browser.waitUntil(() => firstTodo.isCompleted());
     });
 
-    // #7:
+    // #8:
     it('show active/completed todos', () => {
-        const firstTodo = new todoPage.Todo('first todo');
-        const secondTodo = new todoPage.Todo('second todo');
-
         // create 2 todo items
         todoPage.createTodo('first todo');
         todoPage.createTodo('second todo');
@@ -100,13 +95,8 @@ describe('todo app', () => {
         firstTodo.self.waitForExist();
     });
 
-    // #8:
+    // #9:
     it('complete all todos', () => {
-        const firstTodo = new todoPage.Todo('first todo');
-        const secondTodo = new todoPage.Todo('second todo');
-        const thirdTodo = new todoPage.Todo('third todo');
-        const fourthTodo = new todoPage.Todo('fourth todo');
-
         // create 4 todo items
         todoPage.createTodo('first todo');
         todoPage.createTodo('second todo');
@@ -123,13 +113,8 @@ describe('todo app', () => {
         browser.waitUntil(() => fourthTodo.isCompleted());
     });
 
-    // #9:
+    // #10:
     it('delete all completed todos', () => {
-        const firstTodo = new todoPage.Todo('first todo');
-        const secondTodo = new todoPage.Todo('second todo');
-        const thirdTodo = new todoPage.Todo('third todo');
-        const fourthTodo = new todoPage.Todo('fourth todo');
-
         // create 4 todo items
         todoPage.createTodo('first todo');
         todoPage.createTodo('second todo');
@@ -144,15 +129,6 @@ describe('todo app', () => {
 
         // assert 0 todo items in todo list
         browser.waitUntil(() => todoPage.todos.length === 0);
-    });
-
-    // #10:
-    it('remove aside element from DOM', () => {
-        $('aside').waitForExist();
-
-        browser.execute((sideElement) => sideElement.remove(), $('aside'));
-
-        $('aside').waitForExist(null, true);
     });
 
     // #11:
