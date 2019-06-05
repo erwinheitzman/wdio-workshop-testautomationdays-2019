@@ -9,36 +9,36 @@ Add navigation to the beforeEach hook
 
 Exercise #3
 
-Implement the `create todo` scenario.
-Remove the `.skip` from this scenario and run `npm test` to check if the test works as expected.
+Implement the `clear localStorage` scenario
 
 Exercise #4
 
-Implement the `edit todo` scenario
+Implement the `create todo` scenario.
+Remove the `.skip` from this scenario and run `npm test` to check if the test works as expected.
 
 Exercise #5
 
-Implement the `delete todo` scenario
+Implement the `edit todo` scenario
 
 Exercise #6
 
-Implement the `complete one todo` scenario
+Implement the `delete todo` scenario
 
 Exercise #7
 
-Implement the `show active/completed todos` scenario
+Implement the `complete one todo` scenario
 
 Exercise #8
 
-Implement the `complete all todos` scenario
+Implement the `show active/completed todos` scenario
 
 Exercise #9
 
-Implement the `delete all completed todos` scenario
+Implement the `complete all todos` scenario
 
 Exercise #10
 
-Implement the `remove aside element` scenario
+Implement the `delete all completed todos` scenario
 
 Exercise #11
 
