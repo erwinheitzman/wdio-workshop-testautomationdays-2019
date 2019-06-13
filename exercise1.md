@@ -12,21 +12,18 @@ const seleniumOptions = {
         chrome: {
             version: '75.0.3770.90', // version of ChromeDriver
         },
+        firefox: {
+            version: '0.24.0' // version of GeckoDriver
+        }
     },
 };
 ```
 
-And add/change the following properties in the existing config:
+And add the following properties in the existing config:
 
 ```javascript
 exports.config = {
     seleniumInstallArgs: seleniumOptions,
     seleniumArgs: seleniumOptions,
-    capabilities: [
-        {
-            maxInstances: 5,
-            browserName: "chrome"
-        }
-    ]
 };
 ```

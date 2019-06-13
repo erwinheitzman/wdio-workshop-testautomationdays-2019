@@ -3,6 +3,10 @@
 The goal of this exercise is to get familiar with the WebdriverIO config file. We will do this by changing/setting a few options.
 Implement the following changes and see what they do!
 
+## Add browser
+
+Add another capability in the config to run your tests on Chrome. <https://webdriver.io/docs/options.html#capabilities>
+
 ## Change reporter
 
 The `dot` reporter we installed is not very ellaborate. Install the `spec` reporter to get more info from your test. <https://webdriver.io/docs/spec-reporter.html>
