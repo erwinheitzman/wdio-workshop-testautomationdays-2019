@@ -1,53 +1,56 @@
+# Exercise 3: Test TODO app
+
 In the tests directory is a file called todo.spec.js in which you'll find some scenario's to be implemented. Use the todo.page.js to create a page object to be used in your tests. The exercises can be found in the todo.spec.js file marked as #1 #2, etc
 
-Exercise #1a
+## Setp #1a
 
-Create page object class and export an instance of it
+- Create page object class and export an instance of it
 
-Exercise #1b
+## Step #1b
 
-Import the page object class instance
+- Import the page object class instance
 
-Excercise #2
-Add navigation to the beforeEach hook
+## Step #2
 
-Exercise #3
+- Add navigation to the beforeEach hook
 
-Implement the `clear localStorage` scenario
+## Step #3
 
-Exercise #4
+- Implement the `clear localStorage` scenario
 
-Implement the `create todo` scenario.
-Remove the `.skip` from this scenario and run `npm test` to check if the test works as expected.
+## Step #4
 
-Exercise #5
+- Implement the `create todo` scenario.
+- Remove the `.skip` from this scenario and run `npm test` to check if the test works as expected.
 
-Implement the `edit todo` scenario
+## Step #5
 
-Exercise #6
+- Implement the `edit todo` scenario
 
-Implement the `delete todo` scenario
+## Step #6
 
-Exercise #7
+- Implement the `delete todo` scenario
 
-Implement the `complete one todo` scenario
+## Step #7
 
-Exercise #8
+- Implement the `complete one todo` scenario
 
-Implement the `show active/completed todos` scenario
+## Step #8
 
-Exercise #9
+- Implement the `show active/completed todos` scenario
 
-Implement the `complete all todos` scenario
+## Step #9
 
-Exercise #10
+- Implement the `complete all todos` scenario
 
-Implement the `delete all completed todos` scenario
+## Step #10
 
-Exercise #11
+- Implement the `delete all completed todos` scenario
 
-Implement the `add custom command to the Browser object`scenario
+## Step #11
 
-Exercise #12
+- Implement the `add custom command to the Browser object`scenario
 
-Implement the `add custom command to the Element object`scenario
+## Step #12
+
+- Implement the `add custom command to the Element object`scenario
