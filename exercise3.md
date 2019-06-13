@@ -1,4 +1,5 @@
 # Exercise 3: Test TODO app
+
 In the tests directory is a file called todo.spec.js in which you'll find some scenario's to be implemented. Use the todo.page.js to create a page object to be used in your tests. The exercises can be found in the todo.spec.js file marked as #1 #2, etc
 
 ## Setp #1a
