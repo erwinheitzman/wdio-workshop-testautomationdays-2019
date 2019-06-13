@@ -1,4 +1,4 @@
-// #1: import the todoPage class instance
+// #1b: import the page object class instance
 const todoPage = require('./pages/todo.page');
 const firstTodo = new todoPage.Todo('first todo');
 const secondTodo = new todoPage.Todo('second todo');
@@ -12,7 +12,7 @@ describe('todo app', () => {
         todoPage.open();
     });
     beforeEach(() => {
-        // #3: use the `browser.excute` command to clear the localStorage
+        // #3: use the `execute` command to clear the localStorage
         browser.execute(() => localStorage.clear());
 
         // refresh the page

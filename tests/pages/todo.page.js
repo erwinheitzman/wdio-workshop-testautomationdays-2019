@@ -1,3 +1,4 @@
+// 1a: create todoPage class and export an instance of it
 const TodoComponent = require('../components/todo.component');
 const TodoFilterComponent = require('../components/todo-filter.component');
 

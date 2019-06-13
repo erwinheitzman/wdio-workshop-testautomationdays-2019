@@ -1,8 +1,12 @@
 In the tests directory is a file called todo.spec.js in which you'll find some scenario's to be implemented. Use the todo.page.js to create a page object to be used in your tests. The exercises can be found in the todo.spec.js file marked as #1 #2, etc
 
-Exercise #1
+Exercise #1a
 
-Import the page object class
+Create page object class and export an instance of it
+
+Exercise #1b
+
+Import the page object class instance
 
 Excercise #2
 Add navigation to the beforeEach hook
