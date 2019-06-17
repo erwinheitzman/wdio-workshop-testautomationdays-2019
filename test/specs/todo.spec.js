@@ -1,5 +1,5 @@
 // #1b: import the page object class instance
-const todoPage = require('./pages/todo.page');
+const todoPage = require('../pages/todo.page');
 const firstTodo = new todoPage.Todo('first todo');
 const secondTodo = new todoPage.Todo('second todo');
 const thirdTodo = new todoPage.Todo('third todo');
