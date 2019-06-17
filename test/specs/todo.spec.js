@@ -133,23 +133,27 @@ describe('todo app', () => {
 
     // #11:
     it('add custom command to the Browser object', () => {
+        // add a custom command to the Browser object
         browser.addCommand('removeAsideElement', function() {
             $('aside').waitForExist();
             browser.execute((sideElement) => sideElement.remove(), $('aside'));
             $('aside').waitForExist(null, true);
         });
 
+        // use the command
         browser.removeAsideElement();
     });
 
     // #12:
     it('add custom command to the Element object', () => {
+        // add a custom command to the Element object
         browser.addCommand('removeAsideElement', function() {
             this.waitForExist();
             browser.execute((sideElement) => sideElement.remove(), this);
             this.waitForExist(null, true);
         }, true);
     
+        // use the command
         $('aside').removeAsideElement();
     });
 });
