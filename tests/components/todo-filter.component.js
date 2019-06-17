@@ -4,14 +4,14 @@ module.exports = class TodoFilterComponent {
     }
 
     get all() {
-        return $('=All');
+        return this.self.$('=All');
     }
 
     get active() {
-        return $('=Active');
+        return this.self.$('=Active');
     }
 
     get completed() {
-        return $('=Completed');
+        return this.self.$('=Completed');
     }
 };

@@ -29,19 +29,36 @@ class TodoPage {
     }
 
     createTodo(str) {
-        this.newTodoInput.click();
-        browser.keys(str);
+        // using addValue
+        this.newTodoInput.addValue(str);
+
+        // using keys
+        // this.newTodoInput.click();
+        // browser.keys(str);
+
+        // both options are viable
+
         browser.keys('Enter');
     }
 
     editTodo(elem, str) {
         elem.self.doubleClick();
-        Array
-            .from(elem.editInput.getValue())
-            .forEach(() => {
-                browser.keys('Backspace');
-            });
-        browser.keys(str);
+
+        // using addValue
+        browser.execute(i => i.select(), elem.editInput);
+        elem.editInput.addValue(str);
+
+        // using keys
+        // Array
+        //     .from(elem.editInput.getValue())
+        //     .forEach(() => {
+        //         browser.keys('Backspace');
+        //     });
+        // browser.keys(str);
+        // elem.editInput.waitForExist();
+
+        // both options are viable
+
         browser.keys('Enter');
     }
 

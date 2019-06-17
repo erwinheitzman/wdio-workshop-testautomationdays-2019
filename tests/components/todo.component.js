@@ -9,15 +9,15 @@ module.exports = class TodoComponent {
     }
 
     get completeToggle() {
-        return $('input.toggle');
+        return this.self.$('input.toggle');
     }
 
     get editInput() {
-        return $('input.edit');
+        return this.self.$('input.edit');
     }
 
     get deleteButton() {
-        return $('button.destroy');
+        return this.self.$('button.destroy');
     }
 
     isCompleted() {

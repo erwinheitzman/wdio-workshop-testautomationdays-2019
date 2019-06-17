@@ -2,55 +2,55 @@
 
 In the tests directory is a file called todo.spec.js in which you'll find some scenario's to be implemented. Use the todo.page.js to create a page object to be used in your tests. The exercises can be found in the todo.spec.js file marked as #1 #2, etc
 
-## Setp #1a
+## Step 1a
 
 - Create page object class and export an instance of it
 
-## Step #1b
+## Step 1b
 
 - Import the page object class instance
 
-## Step #2
+## Step 2
 
 - Add navigation to the beforeEach hook
 
-## Step #3
+## Step 3
 
 - Implement the `clear localStorage` scenario
 
-## Step #4
+## Step 4
 
 - Implement the `create todo` scenario.
 - Remove the `.skip` from this scenario and run `npm test` to check if the test works as expected.
 
-## Step #5
+## Step 5
 
 - Implement the `edit todo` scenario
 
-## Step #6
+## Step 6
 
 - Implement the `delete todo` scenario
 
-## Step #7
+## Step 7
 
 - Implement the `complete one todo` scenario
 
-## Step #8
+## Step 8
 
 - Implement the `show active/completed todos` scenario
 
-## Step #9
+## Step 9
 
 - Implement the `complete all todos` scenario
 
-## Step #10
+## Step 10
 
 - Implement the `delete all completed todos` scenario
 
-## Step #11
+## Step 11
 
 - Implement the `add custom command to the Browser object`scenario
 
-## Step #12
+## Step 12
 
 - Implement the `add custom command to the Element object`scenario
