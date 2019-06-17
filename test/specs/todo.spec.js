@@ -9,7 +9,7 @@ describe('todo app', () => {
     });
 
     // #4:
-    it('create todo', () => {
+    it.skip('create todo', () => {
         // create todo item
 
         // assert 1 item in list
@@ -18,7 +18,7 @@ describe('todo app', () => {
     });
 
     // #5:
-    it('edit todo', () => {
+    it.skip('edit todo', () => {
         // create a todo item
 
         // edit the created todo item
@@ -27,7 +27,7 @@ describe('todo app', () => {
     });
 
     // #6:
-    it('delete todo', () => {
+    it.skip('delete todo', () => {
         // create 2 todo items
 
         // delete first todo item
@@ -38,7 +38,7 @@ describe('todo app', () => {
     });
 
     // #7:
-    it('complete one todo', () => {
+    it.skip('complete one todo', () => {
         // create 2 todo items
 
         // complete first todo item
@@ -47,7 +47,7 @@ describe('todo app', () => {
     });
 
     // #8:
-    it('show active/completed todos', () => {
+    it.skip('show active/completed todos', () => {
         // create 2 todo items
 
         // complete first todo item
@@ -62,7 +62,7 @@ describe('todo app', () => {
     });
 
     // #9:
-    it('complete all todos', () => {
+    it.skip('complete all todos', () => {
         // create 4 todo items
 
         // complete all todo items
@@ -71,7 +71,7 @@ describe('todo app', () => {
     });
 
     // #10:
-    it('delete all completed todos', () => {
+    it.skip('delete all completed todos', () => {
         // create 4 todo items
 
         // complete all todo items
@@ -82,14 +82,14 @@ describe('todo app', () => {
     });
 
     // #11:
-    it('add custom command to the Browser object', () => {
+    it.skip('add custom command to the Browser object', () => {
         // add a custom command to the Browser object
 
         // use the command
     });
 
     // #12:
-    it('add custom command to the Element object', () => {
+    it.skip('add custom command to the Element object', () => {
         // add a custom command to the Element object
     
         // use the command
