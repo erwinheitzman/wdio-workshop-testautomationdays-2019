@@ -12,10 +12,8 @@ describe('todo app', () => {
         todoPage.open();
     });
     beforeEach(() => {
-        // #3: use the `execute` command to clear the localStorage
+        // #3: use the `execute` command to clear the localStorage and then refresh the page
         browser.execute(() => localStorage.clear());
-
-        // refresh the page
         browser.refresh();
     });
 
