@@ -20,3 +20,4 @@ All that logging to the terminal is pretty annoying, set the `outputDir` propert
 
 Wouldn't it be great if we had a screenshot of our browser when a test fails.
 Implement this by checking in the `afterTest` hook if the test failed and take a screenshot if it did.
+(Don't forget to verify it works by making a test fail.)
