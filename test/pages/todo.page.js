@@ -29,14 +29,22 @@ class TodoPage {
     }
 
     createTodo(str) {
-        // using addValue
+        /**
+         * using `addValue`
+         */
+
         this.newTodoInput.addValue(str);
 
-        // using keys
+        /**
+         * using `keys`
+         */
+
         // this.newTodoInput.click();
         // browser.keys(str);
 
-        // both options are viable
+        /**
+         * both options are viable
+         */
 
         browser.keys('Enter');
     }
@@ -44,11 +52,17 @@ class TodoPage {
     editTodo(elem, str) {
         elem.self.doubleClick();
 
-        // using addValue
+        /**
+         * using `addValue`
+         */
+
         browser.execute(i => i.select(), elem.editInput);
         elem.editInput.addValue(str);
 
-        // using keys
+        /**
+         * using `keys`
+         */
+
         // Array
         //     .from(elem.editInput.getValue())
         //     .forEach(() => {
@@ -57,7 +71,9 @@ class TodoPage {
         // browser.keys(str);
         // elem.editInput.waitForExist();
 
-        // both options are viable
+        /**
+         * both options are viable
+         */
 
         browser.keys('Enter');
     }

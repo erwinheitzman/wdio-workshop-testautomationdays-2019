@@ -1,6 +1,7 @@
 # Exercise 3: Test TODO app
 
-In the tests directory is a file called todo.spec.js in which you'll find some scenario's to be implemented. Use the todo.page.js to create a page object to be used in your tests. The exercises can be found in the todo.spec.js file marked as #1 #2, etc
+In the `test/specs` directory is a file called `todo.spec.js` in which you'll find some scenario's to be implemented. Use the `todo.page.js` file found in `test/pages` to create a page object to be used in your tests. The exercises can be found in the `todo.spec.js` file marked as #1 #2, etc.
+To run your testcases remove the `.skip` and run `npm test` to check if they work as expected.
 
 ## Step 1a
 
@@ -16,12 +17,12 @@ In the tests directory is a file called todo.spec.js in which you'll find some s
 
 ## Step 3
 
-- Implement the `clear localStorage` scenario
+- Implement the `execute` command to clear the localStorage then
+- Refresh the page
 
 ## Step 4
 
 - Implement the `create todo` scenario.
-- Remove the `.skip` from this scenario and run `npm test` to check if the test works as expected.
 
 ## Step 5
 

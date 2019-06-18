@@ -8,7 +8,7 @@ const editedTodo = new todoPage.Todo('edited todo');
 
 describe('todo app', () => {
     before(() => {
-        // #2: add navigation to 'http://todomvc.com/examples/vanillajs/'
+        // #2: add navigation to http://todomvc.com/examples/vanillajs/
         todoPage.open();
     });
     beforeEach(() => {
