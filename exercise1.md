@@ -1,11 +1,12 @@
 # Exercise 1: Getting up & running
 
-The goal of this exercise is to show you how to get up and running with WebdriverIO.
-Just follow the steps at <https://webdriver.io/docs/gettingstarted.html>
+The goal of this exercise is to show you how to get up and running with WebdriverIO.\
+Just follow the steps at <https://webdriver.io/docs/gettingstarted.html>\
+
 NOTES:
--Do not create a new directory, but use the root of this checkout to run `npm init -y`
--Make sure you install selenium-standalone instead of chromedriver
--ONLY install the dot-reporter, not the spec-reporter
+- Do not create a new directory as mentioned in the guide but use the root of this project to run `npm init -y`
+- Make sure you install selenium-standalone instead of chromedriver
+- ONLY install the dot-reporter, not the spec-reporter
 
 After you are done, add the following constant to the config file.
 
