@@ -28,6 +28,10 @@ class TodoPage {
         return $('input.edit');
     }
 
+    get count() {
+        return $('.todo-count strong');
+    }
+
     createTodo(str) {
         /**
          * using `addValue`

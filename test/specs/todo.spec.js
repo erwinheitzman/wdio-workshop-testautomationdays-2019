@@ -23,7 +23,16 @@ describe('todo app', () => {
         todoPage.createTodo('first todo');
 
         // assert 1 item in list
+
+        /**
+         * assert the todo count
+         */
         browser.waitUntil(() => todoPage.todos.length === 1);
+
+        /**
+         * asserting the text containing the total todo's left
+         */
+        browser.waitUntil(() => todoPage.count.getText() === '1');
 
         // assert list contains the input item
         firstTodo.self.waitForExist();
