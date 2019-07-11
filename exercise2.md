@@ -3,7 +3,7 @@
 The goal of this exercise is to get familiar with the WebdriverIO config file. We will do this by changing/setting a few options.
 Implement the following changes and see what they do!
 
-## Add browser
+## Add another browser
 
 Add another capability in the config to run your tests on Chrome. <https://webdriver.io/docs/options.html#capabilities>
 
