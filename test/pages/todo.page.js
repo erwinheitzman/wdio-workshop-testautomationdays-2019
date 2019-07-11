@@ -60,6 +60,7 @@ class TodoPage {
          * using `addValue`
          */
 
+        elem.editInput.waitForDisplayed();
         browser.execute(i => i.select(), elem.editInput);
         elem.editInput.addValue(str);
 
@@ -73,7 +74,6 @@ class TodoPage {
         //         browser.keys('Backspace');
         //     });
         // browser.keys(str);
-        // elem.editInput.waitForExist();
 
         /**
          * both options are viable

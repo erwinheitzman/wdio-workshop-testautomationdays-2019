@@ -4,8 +4,7 @@ module.exports = class TodoComponent {
     }
 
     get self() {
-        return $('ul.todo-list')
-            .$(`li=${this.selector}`);
+        return $(`li=${this.selector}`);
     }
 
     get completeToggle() {

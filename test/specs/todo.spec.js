@@ -6,10 +6,15 @@ const thirdTodo = new todoPage.Todo('third todo');
 const fourthTodo = new todoPage.Todo('fourth todo');
 const editedTodo = new todoPage.Todo('edited todo');
 
+let isMobileEmulated;
+
 describe('todo app', () => {
     before(() => {
         // #2: add navigation to http://todomvc.com/examples/vanillajs/
         todoPage.open();
+
+        isMobileEmulated = browser.options.capabilities['goog:chromeOptions']
+            && browser.options.capabilities['goog:chromeOptions'].mobileEmulation;
     });
     beforeEach(() => {
         // #3: use the `execute` command to clear the localStorage and then refresh the page
@@ -57,7 +62,12 @@ describe('todo app', () => {
         todoPage.createTodo('second todo');
 
         // delete first todo item
-        firstTodo.self.moveTo();
+        if (isMobileEmulated) {
+            firstTodo.self.click();
+        } else {
+            firstTodo.self.moveTo();
+        }
+        firstTodo.deleteButton.waitForDisplayed();
         firstTodo.deleteButton.click();
 
         // assert 1 item in todo list
