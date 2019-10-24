@@ -1,13 +1,16 @@
 const { existsSync, mkdirSync, rmdirSync, readdirSync, lstatSync, unlinkSync } = require('fs');
 const { isAbsolute, join } = require('path');
+const CustomService = require('./custom-service');
+
+const debug = process.env.DEBUG;
 
 const seleniumOptions = {
     drivers: {
         chrome: {
-            version: '75.0.3770.90'
+            version: '78.0.3904.70'
         },
         firefox: {
-            version: '0.24.0'
+            version: '0.26.0'
         }
     }
 };
@@ -16,12 +19,22 @@ const capabilities = [
     {
         maxInstances: 5,
         browserName: 'chrome',
+        'goog:chromeOptions': {
+            args: [
+                '-headless',
+                '-incognito'
+            ]
+        }
     },
     {
         maxInstances: 5,
         browserName: 'chrome',
         'goog:chromeOptions': {
             mobileEmulation: { deviceName: 'Galaxy S5' },
+            args: [
+                '-headless',
+                '-incognito'
+            ]
         }
     },
     {
@@ -29,15 +42,24 @@ const capabilities = [
         browserName: 'firefox',
         'moz:firefoxOptions': {
             args: [
-                'incognito'
+                '-headless',
+                '-private'
             ]
         },
     }
 ];
 
 const config = {
+    debug: debug ? true : false,
+    execArgv: debug ? ['--inspect-brk=127.0.0.1:5859'] : [],
+
+    // automationProtocol: 'devtools',
+
     seleniumArgs: seleniumOptions,
     seleniumInstallArgs: seleniumOptions,
+
+    // user: process.env.BROWSERSTACK_USERNAME,
+    // key: process.env.BROWSERSTACK_PASSWORD,
     //
     // ====================
     // Runner Configuration
@@ -56,7 +78,7 @@ const config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/*.spec.js'
+        `./test/specs/todo.spec.js`
     ],
     // Patterns to exclude.
     exclude: [
@@ -78,7 +100,7 @@ const config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 15,
+    maxInstances: debug ? 1 : 15,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -93,7 +115,7 @@ const config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: debug ? 'debug' : 'silent',
     //
     // Set specific log levels per logger
     // loggers:
@@ -133,7 +155,13 @@ const config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone'],
+    services: [
+        'selenium-standalone',
+        [ CustomService, { someOption: true } ]
+    ],
+    //
+    // path: '/', // needed when using the chromedriver service
+    // port: 9515, // needed when using the chromedriver service
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -149,14 +177,29 @@ const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec'],
-
+    reporters: [
+        [
+            'json',
+            {
+                outputDir: 'json-results',
+                outputFileFormat: function(opts) { return `results-${opts.cid}.${opts.capabilities}.json`; }
+            }
+        ],
+        [
+            'allure',
+            {
+                outputDir: 'allure-results',
+                disableWebdriverStepsReporting: true,
+                disableWebdriverScreenshotsReporting: true,
+            }
+        ]
+    ],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: debug ? (24 * 60 * 60 * 1000) : 60000
     },
     //
     // =====
