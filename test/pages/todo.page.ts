@@ -1,12 +1,12 @@
 // 1a: create todoPage class and export an instance of it
-const TodoComponent = require('../components/todo.component');
-const TodoFilterComponent = require('../components/todo-filter.component');
+import { TodoComponent } from '../components/todo.component';
+import  {TodoFilterComponent } from '../components/todo-filter.component';
 
 class TodoPage {
-    constructor() {
-        this.Todo = TodoComponent;
-        this.filter = new TodoFilterComponent();
-    }
+    public Todo = TodoComponent;
+    public filter = new TodoFilterComponent();
+
+    constructor() {}
 
     get toggleCompleteAll() {
         return $('input.toggle-all');
@@ -24,15 +24,11 @@ class TodoPage {
         return $('input.new-todo');
     }
 
-    get editInput() {
-        return $('input.edit');
-    }
-
     get count() {
         return $('.todo-count strong');
     }
 
-    createTodo(str) {
+    createTodo(str: string) {
         /**
          * using `addValue`
          */
@@ -53,21 +49,28 @@ class TodoPage {
         browser.keys('Enter');
     }
 
-    editTodo(elem, str) {
+    editTodo(elem: TodoComponent, str: string) {
         elem.self.doubleClick();
+
+        /**
+         * using `execute`
+         */
+        elem.editInput.waitForExist();
+        browser.execute((i, s) => {
+            i.value = s;
+            i.blur();
+        }, elem.editInput, str);
 
         /**
          * using `addValue`
          */
-
-        elem.editInput.waitForDisplayed();
-        browser.execute(i => i.select(), elem.editInput);
-        elem.editInput.addValue(str);
+        // elem.editInput.waitForExist();
+        // browser.execute(i => i.select(), elem.editInput);
+        // elem.editInput.addValue(str);
 
         /**
          * using `keys`
          */
-
         // Array
         //     .from(elem.editInput.getValue())
         //     .forEach(() => {
@@ -75,11 +78,7 @@ class TodoPage {
         //     });
         // browser.keys(str);
 
-        /**
-         * both options are viable
-         */
-
-        browser.keys('Enter');
+        // browser.keys('Enter');
     }
 
     open() {
@@ -87,4 +86,4 @@ class TodoPage {
     }
 }
 
-module.exports = new TodoPage();
+export const todoPage = new TodoPage();

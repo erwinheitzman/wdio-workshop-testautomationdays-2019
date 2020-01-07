@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "types": [
+      "@wdio/mocha-framework",
+      "@wdio/sync",
+      "node",
+      "expect-webdriverio"
+    ],
+  },
+}

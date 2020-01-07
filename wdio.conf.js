@@ -7,7 +7,7 @@ const debug = process.env.DEBUG;
 const seleniumOptions = {
     drivers: {
         chrome: {
-            version: '78.0.3904.70'
+            version: '79.0.3945.36'
         },
         firefox: {
             version: '0.26.0'
@@ -23,9 +23,8 @@ const capabilities = [
             args: [
                 '-headless',
                 '-incognito'
-            ]
-        }
-    },
+            ],
+        },
     {
         maxInstances: 5,
         browserName: 'chrome',
@@ -43,8 +42,8 @@ const capabilities = [
         'moz:firefoxOptions': {
             args: [
                 '-headless',
-                '-private'
-            ]
+                '-private',
+            ],
         },
     }
 ];
@@ -78,7 +77,7 @@ const config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        `./test/specs/todo.spec.js`
+        `./test/specs/*.spec.ts`
     ],
     // Patterns to exclude.
     exclude: [
@@ -157,6 +156,7 @@ const config = {
     // commands. Instead, they hook themselves up into the test process.
     services: [
         'selenium-standalone',
+        'expect-webdriverio',
         [ CustomService, { someOption: true } ]
     ],
     //
@@ -241,6 +241,14 @@ const config = {
             rmdirRecursive('errorShots');
         }
 
+        if (existsSync('allure-results')) {
+            rmdirRecursive('allure-results');
+        }
+
+        if (existsSync('json-results')) {
+            rmdirRecursive('json-results');
+        }
+
         mkdirSync('errorShots');
     },
     /**
@@ -259,6 +267,8 @@ const config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
     before: function (capabilities, specs) {
+        require('expect-webdriverio');
+        require('ts-node').register({ files: true });
         mkdirSync('errorShots/' + browser.options.capabilities.browserName.toLowerCase() + '-' + browser.sessionId);
     },
     /**
@@ -298,6 +308,10 @@ const config = {
      * @param {Object} test test details
      */
     afterTest: function (test) {
+        if (test.example) {
+            console.log('should log "foo" when running spec file "add-test-property": ', test.example);
+        }
+        
         if (!test.passed) {
             browser.saveScreenshot('./errorShots/' + browser.options.capabilities.browserName.toLowerCase() + '-' + browser.sessionId + '/' + test.fullTitle + '.png');
         }

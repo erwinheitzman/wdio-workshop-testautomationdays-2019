@@ -1,7 +1,5 @@
-module.exports = class TodoComponent {
-    constructor(selector) {
-        this.selector = selector;
-    }
+export class TodoComponent {
+    constructor(public selector: string) {}
 
     get self() {
         return $(`li=${this.selector}`);

@@ -1,4 +1,4 @@
-module.exports = class TodoFilterComponent {
+export class TodoFilterComponent {
     get self() {
         return $('ul.filters');
     }
