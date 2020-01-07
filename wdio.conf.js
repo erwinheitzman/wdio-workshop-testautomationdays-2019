@@ -25,6 +25,7 @@ const capabilities = [
                 '-incognito'
             ],
         },
+    },
     {
         maxInstances: 5,
         browserName: 'chrome',
