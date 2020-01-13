@@ -1,4 +1,8 @@
 node_modules/
-package.json
-package-lock.json
 .DS_Store
+output/
+errorShots/
+json-results/
+allure-results/
+allure-report/
+.vscode/
