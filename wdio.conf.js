@@ -180,13 +180,6 @@ const config = {
     // see also: https://webdriver.io/docs/dot-reporter.html
     reporters: [
         [
-            'json',
-            {
-                outputDir: 'json-results',
-                outputFileFormat: function(opts) { return `results-${opts.cid}.${opts.capabilities}.json`; }
-            }
-        ],
-        [
             'allure',
             {
                 outputDir: 'allure-results',
@@ -244,10 +237,6 @@ const config = {
 
         if (existsSync('allure-results')) {
             rmdirRecursive('allure-results');
-        }
-
-        if (existsSync('json-results')) {
-            rmdirRecursive('json-results');
         }
 
         mkdirSync('errorShots');
