@@ -1,94 +1,94 @@
-// #1b: import the page object class instance
+const { setState } = require('../utils/state-manager');
+const { todoPage } = require('../pages/todo.page');
 
 describe('todo app', () => {
     before(() => {
-        // #2: add navigation to 'http://todomvc.com/examples/vanillajs/'
-    });
-    beforeEach(() => {
-        // #3: use the `execute` command to clear the localStorage and then refresh the page
+        todoPage.open();
     });
 
-    // #4:
+    // #2:
     it.skip('create todo', () => {
-        // create todo item
+        // setup 0 todo items
+        setState({ numberOfTodos: 0, completed: false });
+        todoPage.open();
 
-        // assert 1 item in list
+        // create 1 todo item
+
+        // assert 1 item in the todo list
 
         // assert list contains the input item
     });
 
-    // #5:
+    // #3:
     it.skip('edit todo', () => {
-        // create a todo item
+        // setup 1 todo item
 
-        // edit the created todo item
+        // edit the todo item
 
-        // // assert changed item in text in todo item
+        // assert that the title of the item has changed
+    });
+
+    // #4:
+    it.skip('delete todo', () => {
+        // setup 2 todo items
+
+        // delete the first todo item
+
+        // assert 1 item in the todo list
+
+        // assert that the second todo item still exists
+    });
+
+    // #5:
+    it.skip('complete one todo', () => {
+        // setup 2 todo items
+
+        // complete the first todo item
+
+        // assert that the first todo item has the class `completed`
     });
 
     // #6:
-    it.skip('delete todo', () => {
-        // create 2 todo items
+    it.skip('show active/completed todos', () => {
+        // setup 2 todo items
 
-        // delete first todo item
+        // complete the first todo item
 
-        // assert 1 item in todo list
+        // click on the `active` button
 
-        // assert todo text equals second input todo item
+        // assert that the second todo item is shown
+
+        // click on the `completed` button
+
+        // assert that the first todo item is shown
     });
 
     // #7:
-    it.skip('complete one todo', () => {
-        // create 2 todo items
+    it.skip('complete all todos', () => {
+        // setup 4 todo items
 
-        // complete first todo item
+        // click on the `toggle all` button (the downward facing arrow)
 
-        // assert first todo item has class completed
+        // assert that all todo items are completed
     });
 
     // #8:
-    it.skip('show active/completed todos', () => {
-        // create 2 todo items
+    it.skip('delete all completed todos', () => {
+        // setup 4 (completed) todo items
 
-        // complete first todo item
+        // click on the `clear completed` button
 
-        // when click on show active
-
-        // assert todo text equals second input todo item
-
-        // when click on show completed
-
-        // assert todo text equals first input todo item
+        // assert that there are no todo items shown
     });
 
     // #9:
-    it.skip('complete all todos', () => {
-        // create 4 todo items
-
-        // complete all todo items
-
-        // assert 4 todo items completed
-    });
-
-    // #10:
-    it.skip('delete all completed todos', () => {
-        // create 4 todo items
-
-        // complete all todo items
-
-        // delete all completed items
-
-        // assert 0 todo items in todo list
-    });
-
-    // #11:
     it.skip('add custom command to the Browser object', () => {
         // add a custom command to the Browser object
 
         // use the command
     });
 
-    // #12:
+    // #10:
     it.skip('add custom command to the Element object', () => {
         // add a custom command to the Element object
     
