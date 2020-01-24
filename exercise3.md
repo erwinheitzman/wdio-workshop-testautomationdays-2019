@@ -2,55 +2,45 @@
 
 In the tests directory is a file called todo.spec.js in which you'll find some scenario's to be implemented. Use the todo.page.js to create a page object to be used in your tests. The exercises can be found in the todo.spec.js file marked as #1 #2, etc
 
-## Step 1a
+NOTE: for each step, remove the `.skip` from the scenario and run `npm test` to check if the test works as expected
+NOTE: you can add `.only` to a scenario to run only that specific scenario
 
-- Create page object class and export an instance of it
+## Step 1
 
-## Step 1b
-
-- Import the page object class instance
+- Complete the `open` method, found in the page object example [test/pages/todo.page.js](test/pages/todo.page.js)
 
 ## Step 2
 
-- Add navigation to the beforeEach hook
+- Implement the `create todo` scenario, found in the test file [test/specs/todo.spec.js](test/specs/todo.spec.js)
 
 ## Step 3
 
-- Implement the `clear localStorage` scenario
+- Implement the `edit todo` scenario, found in the test file [test/specs/todo.spec.js](test/specs/todo.spec.js)
 
 ## Step 4
 
-- Implement the `create todo` scenario.
-- Remove the `.skip` from this scenario and run `npm test` to check if the test works as expected.
+- Implement the `delete todo` scenario, found in the test file [test/specs/todo.spec.js](test/specs/todo.spec.js)
 
 ## Step 5
 
-- Implement the `edit todo` scenario
+- Implement the `complete one todo` scenario, found in the test file [test/specs/todo.spec.js](test/specs/todo.spec.js)
 
 ## Step 6
 
-- Implement the `delete todo` scenario
+- Implement the `show active/completed todos` scenario, found in the test file [test/specs/todo.spec.js](test/specs/todo.spec.js)
 
 ## Step 7
 
-- Implement the `complete one todo` scenario
+- Implement the `complete all todos` scenario, found in the test file [test/specs/todo.spec.js](test/specs/todo.spec.js)
 
 ## Step 8
 
-- Implement the `show active/completed todos` scenario
+- Implement the `delete all completed todos` scenario, found in the test file [test/specs/todo.spec.js](test/specs/todo.spec.js)
 
 ## Step 9
 
-- Implement the `complete all todos` scenario
+- Implement the `add custom command to the Browser object` scenario, found in the test file [test/specs/todo.spec.js](test/specs/todo.spec.js)
 
 ## Step 10
 
-- Implement the `delete all completed todos` scenario
-
-## Step 11
-
-- Implement the `add custom command to the Browser object`scenario
-
-## Step 12
-
-- Implement the `add custom command to the Element object`scenario
+- Implement the `add custom command to the Element object` scenario, found in the test file [test/specs/todo.spec.js](test/specs/todo.spec.js)
