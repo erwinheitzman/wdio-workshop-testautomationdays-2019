@@ -4,7 +4,7 @@ This course will help you to get up and running with WebdriverIO. It will walk y
 
 ## Summary
 
-- [Excercise 1](./exercise1.md)
+- [Exercise 1](./exercise1.md)
 - [Exercise 2](./exercise2.md)
 - [Exercise 3](./exercise3.md)
 - [Exercise 4](./exercise4.md)
