@@ -1,5 +1,5 @@
-const { setState } = require('../utils/state-manager');
-const { todoPage } = require('../pages/todo.page');
+import { todoPage } from '../pages/todo.page';
+import { setState, states } from '../utils/state-manager';
 
 describe('todo app', () => {
     before(() => {
@@ -8,20 +8,22 @@ describe('todo app', () => {
 
     // #2:
     it.skip('create todo', () => {
-        // setup 0 todo items
-        setState({ numberOfTodos: 0, completed: false });
+        // setup 0 todo items and navigate to the page
+        setState([]);
         todoPage.open();
 
-        // create 1 todo item
+        // create a todo item
 
-        // assert 1 item in the todo list
+        // assert that there is only one item in the todo list
 
-        // assert list contains the input item
+        // assert that the list contains the created item
     });
 
     // #3:
     it.skip('edit todo', () => {
-        // setup 1 todo item
+        // setup 1 todo items and navigate to the page
+        setState([states[0]]);
+        todoPage.open();
 
         // edit the todo item
 
@@ -30,18 +32,18 @@ describe('todo app', () => {
 
     // #4:
     it.skip('delete todo', () => {
-        // setup 2 todo items
+        // setup 2 todo items and navigate to the page
 
         // delete the first todo item
 
-        // assert 1 item in the todo list
+        // assert that there is only one item in the todo list
 
         // assert that the second todo item still exists
     });
 
     // #5:
     it.skip('complete one todo', () => {
-        // setup 2 todo items
+        // setup 2 todo items and navigate to the page
 
         // complete the first todo item
 
@@ -50,9 +52,9 @@ describe('todo app', () => {
 
     // #6:
     it.skip('show active/completed todos', () => {
-        // setup 2 todo items
-
-        // complete the first todo item
+        // setup 2 (one completed and one uncompleted) todo items and navigate to the page
+        setState([{ ...states[0], completed: true }, states[1]]);
+        todoPage.open();
 
         // click on the `active` button
 
@@ -65,7 +67,7 @@ describe('todo app', () => {
 
     // #7:
     it.skip('complete all todos', () => {
-        // setup 4 todo items
+        // setup 4 todo items and navigate to the page
 
         // click on the `toggle all` button (the downward facing arrow)
 
@@ -74,7 +76,7 @@ describe('todo app', () => {
 
     // #8:
     it.skip('delete all completed todos', () => {
-        // setup 4 (completed) todo items
+        // setup 4 (completed) todo items and navigate to the page
 
         // click on the `clear completed` button
 
@@ -83,15 +85,19 @@ describe('todo app', () => {
 
     // #9:
     it.skip('add custom command to the Browser object', () => {
+        // navigate to the page
+
         // add a custom command to the Browser object
 
-        // use the command
+        // execute the command
     });
 
     // #10:
     it.skip('add custom command to the Element object', () => {
+        // navigate to the page
+
         // add a custom command to the Element object
     
-        // use the command
+        // execute the command
     });
 });
