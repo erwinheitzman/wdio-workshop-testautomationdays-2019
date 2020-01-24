@@ -1,4 +1,3 @@
-// #1b: import the page object class instance
 import { todoPage } from '../pages/todo.page';
 import { setState, states } from '../utils/state-manager';
 
@@ -10,11 +9,10 @@ const editedTodo = new todoPage.Todo('edited todo');
 
 describe('todo app', () => {
     before(() => {
-        // #2: add navigation to http://todomvc.com/examples/vanillajs/
         todoPage.open();
     });
 
-    // #4:
+    // #2:
     it('create todo', () => {
         // setup 0 todo items
         setState([]);
@@ -23,7 +21,7 @@ describe('todo app', () => {
         // create todo item
         todoPage.createTodo('todo#1');
 
-        //assert the todo count
+        // assert the todo count
         expect(todoPage.todos).toHaveLength(1);
 
         // asserting the text containing the total todo's left
@@ -33,7 +31,7 @@ describe('todo app', () => {
         expect(firstTodo.self).toBeExisting();
     });
 
-    // #5:
+    // #3:
     it('edit todo', () => {
         // setup 1 todo items
         setState([states[0]]);
@@ -46,7 +44,7 @@ describe('todo app', () => {
         expect(editedTodo.self).toBeExisting();
     });
 
-    // #6:
+    // #4:
     it('delete todo', () => {
         // setup 2 todo items
         setState([states[0], states[1]]);
@@ -63,7 +61,7 @@ describe('todo app', () => {
         expect(secondTodo.self).toBeExisting();
     });
 
-    // #7:
+    // #5:
     it('complete one todo', () => {
         // setup 2 todo items
         setState([states[0], states[1]]);
@@ -76,7 +74,7 @@ describe('todo app', () => {
         expect(firstTodo.self).toHaveAttributeContaining('class', 'completed');
     });
 
-    // #8:
+    // #6:
     it('show active/completed todos', () => {
         // setup 2 todo items
         setState([{ ...states[0], completed: true }, states[1]]);
@@ -95,7 +93,7 @@ describe('todo app', () => {
         expect(firstTodo.self).toBeExisting();
     });
 
-    // #9:
+    // #7:
     it('complete all todos', () => {
         // setup 4 todo items
         setState([ states[0], states[1], states[2], states[3] ]);
@@ -111,7 +109,7 @@ describe('todo app', () => {
         expect(fourthTodo.self).toHaveAttributeContaining('class', 'completed');
     });
 
-    // #10:
+    // #8:
     it('delete all completed todos', () => {
         // setup 4 todo items
         setState([
@@ -129,7 +127,7 @@ describe('todo app', () => {
         expect(todoPage.todos).toHaveLength(0);
     });
 
-    // #11:
+    // #9:
     it('add custom command to the Browser object', () => {
         todoPage.open();
 
@@ -144,7 +142,7 @@ describe('todo app', () => {
         browser.removeAsideElement();
     });
 
-    // #12:
+    // #10:
     it('add custom command to the Element object', () => {
         todoPage.open();
 
