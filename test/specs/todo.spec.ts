@@ -14,95 +14,96 @@ describe('todo app', () => {
 
     // #2:
     it('create todo', () => {
-        // setup 0 todo items
+        // setup 0 todo items and navigate to the page
         setState([]);
         todoPage.open();
 
         // create todo item
         todoPage.createTodo('todo#1');
 
-        // assert the todo count
-        expect(todoPage.todos).toHaveLength(1);
+        // assert that there is only one item in the todo list
 
-        // asserting the text containing the total todo's left
+        // NOTE: either of the following examples can be used
+        expect(todoPage.todos).toHaveLength(1);
         expect(todoPage.count).toHaveText('1')
 
-        // assert list contains the input item
+        // assert that the list contains the created item
         expect(firstTodo.self).toBeExisting();
     });
 
     // #3:
     it('edit todo', () => {
-        // setup 1 todo items
+        // setup 1 todo items and navigate to the page
         setState([states[0]]);
         todoPage.open();
 
-        // edit the created todo item
+        // edit the todo item
         todoPage.editTodo(firstTodo, 'edited todo');
 
-        // assert changed item in text in todo item
+        // assert that the title of the item has changed
         expect(editedTodo.self).toBeExisting();
     });
 
     // #4:
     it('delete todo', () => {
-        // setup 2 todo items
+        // setup 2 todo items and navigate to the page
         setState([states[0], states[1]]);
         todoPage.open();
 
-        // delete first todo item
-        // forcing here because of mobile not accepting click but touch
+        // delete the first todo item
+
+        // NOTE: forcing here because of mobile not accepting click but touch
         browser.execute(deleteButton => deleteButton.click(), firstTodo.deleteButton);
 
-        // assert 1 item in todo list
+        // assert that there is only one item in the todo list
         expect(todoPage.todos).toHaveLength(1);
 
-        // assert that the second todo item is still existing
+        // assert that the second todo item still exists
         expect(secondTodo.self).toBeExisting();
     });
 
     // #5:
     it('complete one todo', () => {
-        // setup 2 todo items
+        // setup 2 todo items and navigate to the page
         setState([states[0], states[1]]);
         todoPage.open();
 
-        // complete first todo item
+        // complete the first todo item
         firstTodo.completeToggle.click();
 
-        // assert first todo item has class completed
+        // assert that the first todo item has the class `completed`
         expect(firstTodo.self).toHaveAttributeContaining('class', 'completed');
     });
 
     // #6:
     it('show active/completed todos', () => {
-        // setup 2 todo items
+        // setup 2 (one completed and one uncompleted) todo items and navigate to the page
         setState([{ ...states[0], completed: true }, states[1]]);
         todoPage.open();
 
-        // when click on show active
+        // click on the `active` button
         todoPage.filter.active.click();
 
-        // assert todo text equals second input todo item
+        // assert that the second todo item is shown
         expect(secondTodo.self).toBeExisting();
 
-        // when click on show completed
+        // click on the `completed` button
         todoPage.filter.completed.click();
 
-        // assert todo text equals first input todo item
+        // assert that the first todo item is shown
         expect(firstTodo.self).toBeExisting();
     });
 
     // #7:
     it('complete all todos', () => {
-        // setup 4 todo items
+        // setup 4 todo items and navigate to the page
         setState([ states[0], states[1], states[2], states[3] ]);
         todoPage.open();
 
-        // complete all todo items
+        // click on the `toggle all` button (the downward facing arrow)
         todoPage.toggleCompleteAll.click();
 
-        // assert 4 todo items completed
+        // assert that all todo items are completed
         expect(firstTodo.self).toHaveAttributeContaining('class', 'completed');
         expect(secondTodo.self).toHaveAttributeContaining('class', 'completed');
         expect(thirdTodo.self).toHaveAttributeContaining('class', 'completed');
@@ -111,7 +112,7 @@ describe('todo app', () => {
 
     // #8:
     it('delete all completed todos', () => {
-        // setup 4 todo items
+        // setup 4 (completed) todo items and navigate to the page
         setState([
             { ...states[0], completed: true },
             { ...states[1], completed: true },
@@ -120,15 +121,16 @@ describe('todo app', () => {
         ]);
         todoPage.open();
 
-        // clear all completed items
+        // click on the `clear completed` button
         todoPage.clearAllCompleted.click();
 
-        // assert 0 todo items in todo list
+        // assert that there are no todo items shown
         expect(todoPage.todos).toHaveLength(0);
     });
 
     // #9:
     it('add custom command to the Browser object', () => {
+        // navigate to the page
         todoPage.open();
 
         // add a custom command to the Browser object
@@ -138,12 +140,13 @@ describe('todo app', () => {
             $('aside').waitForExist(undefined, true);
         });
 
-        // use the command
+        // execute the command
         browser.removeAsideElement();
     });
 
     // #10:
     it('add custom command to the Element object', () => {
+        // navigate to the page
         todoPage.open();
 
         // add a custom command to the Element object
@@ -153,7 +156,7 @@ describe('todo app', () => {
             this.waitForExist(undefined, true);
         }, true);
 
-        // use the command
+        // execute the command
         $('aside').remove();
     });
 });
