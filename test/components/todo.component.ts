@@ -16,10 +16,4 @@ export class TodoComponent {
     get deleteButton() {
         return this.self.$('button.destroy');
     }
-
-    isCompleted() {
-        return this.self
-            .getAttribute('class')
-            .includes('completed');
-    }
 }

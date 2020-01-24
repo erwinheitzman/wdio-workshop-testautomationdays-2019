@@ -42,10 +42,6 @@ class TodoPage {
         // this.newTodoInput.click();
         // browser.keys(str);
 
-        /**
-         * both options are viable
-         */
-
         browser.keys('Enter');
     }
 
@@ -55,6 +51,7 @@ class TodoPage {
         /**
          * using `execute`
          */
+
         elem.editInput.waitForExist();
         browser.execute((i, s) => {
             i.value = s;
@@ -64,6 +61,7 @@ class TodoPage {
         /**
          * using `addValue`
          */
+
         // elem.editInput.waitForExist();
         // browser.execute(i => i.select(), elem.editInput);
         // elem.editInput.addValue(str);
@@ -71,6 +69,7 @@ class TodoPage {
         /**
          * using `keys`
          */
+
         // Array
         //     .from(elem.editInput.getValue())
         //     .forEach(() => {
