@@ -1,6 +1,6 @@
 // 1a: create todoPage class and export an instance of it
 import { TodoComponent } from '../components/todo.component';
-import  {TodoFilterComponent } from '../components/todo-filter.component';
+import { TodoFilterComponent } from '../components/todo-filter.component';
 
 class TodoPage {
     public Todo = TodoComponent;

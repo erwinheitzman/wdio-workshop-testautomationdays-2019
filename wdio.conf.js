@@ -257,7 +257,7 @@ const config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
     before: function (capabilities, specs) {
-        require('expect-webdriverio');
+        require('expect-webdriverio').setOptions({ wait: 10000, interval: 500 });
         require('ts-node').register({ files: true });
         mkdirSync('errorShots/' + browser.options.capabilities.browserName.toLowerCase() + '-' + browser.sessionId);
     },
