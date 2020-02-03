@@ -1,5 +1,5 @@
-import { todoPage } from '../pages/todo.page';
-import { setState, states } from '../utils/state-manager';
+const { todoPage } = require('../pages/todo.page');
+const { setState, states } = require('../utils/state-manager');
 
 describe('todo app', () => {
     before(() => {
