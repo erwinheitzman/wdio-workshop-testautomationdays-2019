@@ -32,7 +32,7 @@ Do you want to run WebdriverIO commands synchronous or asynchronous? -> sync (pr
 Where are your test specs located? -> ./test/specs/**/*.js (press enter)
 Which reporter do you want to use? -> spec (press enter)
 Do you want to add a service to your test setup? -> selenium-standalone (deselect everything else using the arrow keys and spacebar)
-Do you want to add a service to your test setup? -> http://todomvc.com/ (copy paste and press enter)
+What is the base url? -> http://todomvc.com/ (copy paste and press enter)
 ```
 
 ## Drivers
