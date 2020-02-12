@@ -43,7 +43,7 @@ After the CLI is done installing, add the code shown below to the top of your `w
 const seleniumOptions = {
     drivers: {
         chrome: {
-            version: '79.0.3945.36', // replace this with the latest stable version of ChromeDriver which can be found here https://chromedriver.chromium.org/
+            version: '80.0.3987.16', // replace this with the latest stable version of ChromeDriver which can be found here https://chromedriver.chromium.org/
         },
         firefox: {
             version: '0.26.0' // replace this with the latest stable version version of GeckoDriver which can be found here https://github.com/mozilla/geckodriver/releases

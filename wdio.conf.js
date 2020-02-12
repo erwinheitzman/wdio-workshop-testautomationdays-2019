@@ -7,7 +7,7 @@ const debug = process.env.DEBUG;
 const seleniumOptions = {
     drivers: {
         chrome: {
-            version: '79.0.3945.36'
+            version: '80.0.3987.16'
         },
         firefox: {
             version: '0.26.0'
