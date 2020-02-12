@@ -19,5 +19,5 @@ All that logging to the terminal is pretty annoying, let's set the `outputDir` p
 
 Wouldn't it be great if we had a screenshot of our viewport when a test fails?
 Implement this by adding a check to the `afterTest` hook, when the test fails it should save a screenshot if it did <https://webdriver.io/docs/api/browser/saveScreenshot.html>.\
-Tip: the test as a `passed` property\
-Tip: Don't forget to verify it works by making a test fail.\
+Tip: the `test` object has a `passed` property\
+Tip: Don't forget to verify it works by making a test fail by adding `expect(true).to.equal(false)` to a test\
