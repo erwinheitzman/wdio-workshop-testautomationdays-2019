@@ -4,6 +4,7 @@ In the tests directory is a file called todo.spec.js in which you'll find some s
 
 NOTE: for each step, remove the `.skip` from the scenario and run `npm test` to check if the test works as expected
 NOTE: you can add `.only` to a scenario to run only that specific scenario
+NOTE: for more information about the page object pattern check [here](https://webdriver.io/docs/pageobjects.html)
 
 ## Step 1
 
