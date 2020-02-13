@@ -3,11 +3,16 @@
 ## Add a custom service
 
 Add a custom service as explained [here](https://webdriver.io/docs/customservices.html) by using the `./custom-service.js` file.\
-The file has already been imported in `wdio.conf.js` but you will still have to add the service to the services list.\
-Tip: when using an imported service you have to surround the service with a array and pass a options object as the second item as shown in the documentation\
+An example has already been made so you only have to implement it using the `wdio.conf.js` file.\
+To see the service work correctly, add the `someOption` property to the options object as shown in the documentation and run your tests.\
+
+When done correctly it should log the following once:\
+someOption is true
 
 ## Add a custom reporter
 
-Add a custom reporter as explained [here](https://webdriver.io/docs/customreporter.html) by using the `./custom-reporter.js` file.
-The file has already been imported in `wdio.conf.js` but you will still have to add the reporter to the reporters list.\
-Tip: when using an imported reporter you have to surround the reporter with a array and pass a options object as the second item as shown in the documentation\
+Add a custom reporter as explained [here](https://webdriver.io/docs/customreporter.html) by using the `./custom-reporter.js` file.\
+An example has already been made so you only have to implement it using the `wdio.conf.js` file.\
+
+When done correctly it should log the following for each instance:\
+Congratulations! Your have successfully added a custom reporter! 👏
