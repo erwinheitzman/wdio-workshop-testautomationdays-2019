@@ -10,6 +10,7 @@ module.exports = class CustomService {
 
     onComplete(exitCode, config, capabilities) {
         // TODO: something after the workers shutdown
+        console.log('someOption is ' + this.options.someOption);
     }
 
     // ...
