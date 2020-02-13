@@ -95,3 +95,10 @@ npm test
 You should see something along the lines of: `Spec Files:      1 passed, 1 total (100% completed)`
 
 If you got a similar message, well done!
+
+## As a last step, install an assertion library
+
+To install an assertion library execute the following:
+```
+npm i expect expect-webdriverio
+```
