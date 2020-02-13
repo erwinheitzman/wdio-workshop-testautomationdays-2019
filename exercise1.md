@@ -99,6 +99,21 @@ If you got a similar message, well done!
 ## As a last step, install an assertion library
 
 To install an assertion library execute the following:
+
 ```
 npm i expect expect-webdriverio
+```
+
+Then add `expect-webdriverio` to your services list in the `wdio.conf.js` (do not remove anything that is already in that list) and add the following to your `before` hook in that same file.
+
+```javascript
+services: [
+  'expect-webdriverio',
+],
+```
+
+```javascript
+before: function (capabilities, specs) {
+    require('expect-webdriverio').setOptions({ wait: 10000, interval: 500 });
+},
 ```
