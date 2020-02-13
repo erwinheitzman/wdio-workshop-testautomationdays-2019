@@ -1,6 +1,7 @@
 const { existsSync, mkdirSync, rmdirSync, readdirSync, lstatSync, unlinkSync } = require('fs');
 const { isAbsolute, join } = require('path');
 const CustomService = require('./custom-service');
+const CustomReporter = require('./custom-reporter');
 
 const debug = process.env.DEBUG;
 
@@ -186,7 +187,8 @@ const config = {
                 disableWebdriverStepsReporting: true,
                 disableWebdriverScreenshotsReporting: true,
             }
-        ]
+        ],
+        [ CustomReporter, {} ]
     ],
     //
     // Options to be passed to Mocha.
